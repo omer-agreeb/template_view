@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: username
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: my_demo_development
+
+test:
+  <<: *default
+  database: my_demo_test
+
+production:
+  <<: *default
+  database: my_demo_production
+  username: my_demo
+  password: <%= ENV['TECHNICAL_TOUCH_DATABASE_PASSWORD'] %>
